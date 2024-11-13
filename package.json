@@ -1,0 +1,26 @@
+{
+  "name": "glua-linter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "lefthook install",
+    "test": "jest",
+    "postinstall": "npm run prepare"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/luaparse": "^0.2.12",
+    "@types/vscode": "^1.95.0",
+    "jest": "^29.7.0",
+    "lefthook": "^1.8.2",
+    "ts-jest": "^29.2.5"
+  }
+}
