@@ -8,7 +8,6 @@ export function functionNameRule(ast: any): { line: number, message: string }[] 
         if (node.type === 'FunctionDeclaration')
             manageFunction(node, errors)
     })
-
     return errors
 }
 

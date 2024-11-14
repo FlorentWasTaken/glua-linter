@@ -49,7 +49,6 @@ export function activate(context: vscode.ExtensionContext) {
             vscode.window.showInformationMessage('GLua Linter is done!')
         }
     })
-
     context.subscriptions.push(disposable)
 }
 
