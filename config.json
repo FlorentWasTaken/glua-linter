@@ -1,4 +1,5 @@
 {
     "maxFunctionLength": 25,
-    "maxVariableNameLength": 15
+    "maxVariableLength": 15,
+    "maxGlobalVariableLength": 20
 }

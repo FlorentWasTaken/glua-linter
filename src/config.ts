@@ -3,7 +3,8 @@ import { resolve } from 'path'
 
 interface LinterConfig {
     maxFunctionLength: number
-    maxVariableNameLength: number
+    maxVariableLength: number
+    maxGlobalVariableLength: number
 }
 
 const configPath = resolve(__dirname, '../config.json')
@@ -12,7 +13,8 @@ const jsonConfig = JSON.parse(rawConfig)
 
 export const config: LinterConfig = {
     maxFunctionLength: jsonConfig.maxFunctionLength || 25,
-    maxVariableNameLength: jsonConfig.maxVariableNameLength || 15
+    maxVariableLength: jsonConfig.maxVariableLength || 15,
+    maxGlobalVariableLength: jsonConfig.maxGlobalVariableLength || 20
 }
 
 export function getConfig(): LinterConfig {
