@@ -1,11 +1,11 @@
 import * as vscode from 'vscode'
 import * as luaparse from 'luaparse'
-import { camelCaseRule } from './rules/camelCaseRule'
+import { variableNameRule } from './rules/variableNameRule'
 
 export function lintGLua(code: string) {
     const ast = parseGLua(code)
     const errors = [
-        ...applyRule(camelCaseRule, ast)
+        ...applyRule(variableNameRule, ast)
     ]
     return errors
 }
