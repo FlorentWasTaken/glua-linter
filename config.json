@@ -3,5 +3,6 @@
     "maxGlobalFunctionLength": 20,
     "maxVariableLength": 15,
     "maxGlobalVariableLength": 20,
-    "maxFunctionParameters": 4
+    "maxFunctionParameters": 4,
+    "maxIfDepth": 3
 }

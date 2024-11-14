@@ -7,7 +7,6 @@ describe('functionParameterRule', () => {
 		const ast = parse(code)
 		const result = functionParameterRule(ast)
 
-        console.log(ast)
 		expect(result).toEqual([
 		{
 			line: 1,
