@@ -1,6 +1,5 @@
 import { variableNameRule } from '../src/rules/variableNameRule'
 import { parse } from 'luaparse'
-import { config } from '../src/config'
 
 describe('variableNameRule', () => {
 	it('should return an error if a variable name is not in camelCase', () => {

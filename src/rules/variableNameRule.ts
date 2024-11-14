@@ -1,4 +1,5 @@
-import { config } from '../config';
+import { config } from '../config'
+import { traverseAST, isCamelCase, isUpperSnakeCase } from '../tools'
 
 export function variableNameRule(ast: any): { line: number, message: string }[] {
     const errors: { line: number, message: string }[] = []
@@ -18,22 +19,6 @@ export function variableNameRule(ast: any): { line: number, message: string }[] 
     return errors
 }
 
-function traverseAST(node: any, callback: (node: any) => void) {
-    callback(node)
-    if (node.body)
-        node.body.forEach((childNode: any) => traverseAST(childNode, callback))
-    if (node.arguments)
-        node.arguments.forEach((childNode: any) => traverseAST(childNode, callback))
-}
-
-function isCamelCase(name: string): boolean {
-    return /^[a-z]+([A-Z][a-z]*)*$/.test(name)
-}
-
-function isUpperCaseWithUnderscores(name: string): boolean {
-    return /^[A-Z]+(_[A-Z]+)*$/.test(name)
-}
-
 function manageLocalVariable(variable: any, errors: { line: number, message: string }[]) {
     if (!isCamelCase(variable.name)) {
         errors.push({
@@ -51,7 +36,7 @@ function manageLocalVariable(variable: any, errors: { line: number, message: str
 function manageGlobalVariable(node: any, variable: any, errors: { line: number, message: string }[]) {
     const isGlobal = !node.parent || node.parent.type !== 'LocalStatement'
 
-    if (isGlobal && !isUpperCaseWithUnderscores(variable.name)) {
+    if (isGlobal && !isUpperSnakeCase(variable.name)) {
         errors.push({
             line: 1,
             message: `Global variable name '${variable.name}' must be UPPERCASE with underscores.`,
