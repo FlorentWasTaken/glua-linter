@@ -1,5 +1,6 @@
 {
-    "maxFunctionLength": 25,
+    "maxFunctionLength": 15,
+    "maxGlobalFunctionLength": 20,
     "maxVariableLength": 15,
     "maxGlobalVariableLength": 20
 }
