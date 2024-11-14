@@ -2,5 +2,6 @@
     "maxFunctionLength": 15,
     "maxGlobalFunctionLength": 20,
     "maxVariableLength": 15,
-    "maxGlobalVariableLength": 20
+    "maxGlobalVariableLength": 20,
+    "maxFunctionParameters": 4
 }

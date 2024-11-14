@@ -5,9 +5,8 @@ export function functionNameRule(ast: any): { line: number, message: string }[] 
     const errors: { line: number, message: string }[] = []
 
     traverseAST(ast, (node: any) => {
-        if (node.type === 'FunctionDeclaration') {
+        if (node.type === 'FunctionDeclaration')
             manageFunction(node, errors)
-        }
     })
 
     return errors
