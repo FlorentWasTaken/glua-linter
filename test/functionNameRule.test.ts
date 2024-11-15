@@ -85,4 +85,30 @@ describe('functionNameRule', () => {
 
 		expect(result).toEqual([])
 	})
+
+	it('should return an error for a global function name contains digit', () => {
+		const code = "function NOT_VALID_FUNC123() end"
+		const ast = parse(code)
+		const result = functionNameRule(ast)
+
+		expect(result).toEqual([
+		{
+			line: 1,
+			message: "Global function name 'NOT_VALID_FUNC123' must be UPPERCASE with underscores.",
+		}
+		])
+	})
+
+	it('should return an error if a function name contains digit', () => {
+		const code = "local function notValidFunc12() end"
+		const ast = parse(code)
+		const result = functionNameRule(ast)
+
+		expect(result).toEqual([
+		{
+			line: 1,
+			message: "Function name 'notValidFunc12' must be pascal or lower case.",
+		}
+		])
+	})
 })

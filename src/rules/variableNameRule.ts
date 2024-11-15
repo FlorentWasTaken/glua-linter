@@ -36,12 +36,14 @@ function manageLocalVariable(variable: any, errors: { line: number, message: str
 function manageGlobalVariable(node: any, variable: any, errors: { line: number, message: string }[]) {
     const isGlobal = !node.parent || node.parent.type !== 'LocalStatement'
 
-    if (isGlobal && !isUpperSnakeCase(variable.name)) {
+    if (!isGlobal)
+        return
+    if (!isUpperSnakeCase(variable.name)) {
         errors.push({
             line: 1,
             message: `Global variable name '${variable.name}' must be UPPERCASE with underscores.`,
         })
-    } else if (isGlobal && variable.name.length > config.maxGlobalVariableLength) {
+    } else if (variable.name.length > config.maxGlobalVariableLength) {
         errors.push({
             line: 1,
             message: `Global variable name '${variable.name}' is too large (> ${config.maxGlobalVariableLength}).`,
