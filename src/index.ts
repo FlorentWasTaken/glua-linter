@@ -1,11 +1,20 @@
 import * as vscode from 'vscode'
 import * as luaparse from 'luaparse'
 import { variableNameRule } from './rules/variableNameRule'
+import { ifNestedRule } from './rules/ifNestedRule'
+import { functionParameterRule } from './rules/functionParameterRule'
+import { functionNameRule } from './rules/functionNameRule'
+import { loopNestedRule } from './rules/loopNestedRule'
 
 export function lintGLua(code: string) {
     const ast = parseGLua(code)
     const errors = [
-        ...applyRule(variableNameRule, ast)
+        ...applyRule(variableNameRule, ast),
+        ...applyRule(ifNestedRule, ast),
+        ...applyRule(functionParameterRule, ast),
+        ...applyRule(functionNameRule, ast),
+        ...applyRule(functionNameRule, ast),
+        ...applyRule(loopNestedRule, ast)
     ]
     return errors
 }
