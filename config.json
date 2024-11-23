@@ -5,5 +5,17 @@
     "maxGlobalVariableLength": 20,
     "maxFunctionParameters": 4,
     "maxIfDepth": 3,
-    "maxForDepth": 3
+    "maxForDepth": 3,
+    "forbiddenFunctions": [
+        "net.WriteTable",
+        "net.ReadTable",
+        "net.WriteType",
+        "net.ReadType",
+        "usermessage.*",
+        "umsg.*",
+        "SendUserMessage",
+        ":Distance",
+        ":SendLua",
+        ":BroadcastLua"
+    ]
 }

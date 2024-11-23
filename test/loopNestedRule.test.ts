@@ -45,7 +45,6 @@ describe('loopNestedRule', () => {
             end
         end`
 		const ast = parse(code)
-		console.log(JSON.stringify(ast))
 		const result = loopNestedRule(ast)
 
 		expect(result).toEqual([

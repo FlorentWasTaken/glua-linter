@@ -9,6 +9,7 @@ interface LinterConfig {
     maxFunctionParameters: number
     maxIfDepth: number
     maxForDepth: number
+    forbiddenFunctions: string[]
 }
 
 const configPath = resolve(__dirname, '../config.json')
@@ -22,7 +23,8 @@ export const config: LinterConfig = {
     maxGlobalVariableLength: jsonConfig.maxGlobalVariableLength || 20,
     maxFunctionParameters: jsonConfig.maxFunctionParameters || 20,
     maxIfDepth: jsonConfig.maxIfDepth || 3,
-    maxForDepth: jsonConfig.maxForDepth || 3
+    maxForDepth: jsonConfig.maxForDepth || 3,
+    forbiddenFunctions: jsonConfig.forbiddenFunctions || []
 }
 
 export function getConfig(): LinterConfig {
