@@ -5,6 +5,7 @@ import { ifNestedRule } from './rules/ifNestedRule'
 import { functionParameterRule } from './rules/functionParameterRule'
 import { functionNameRule } from './rules/functionNameRule'
 import { loopNestedRule } from './rules/loopNestedRule'
+import { trailingSpaceRule } from './rules/trailingSpaceRule'
 
 export function lintGLua(code: string) {
     const ast = parseGLua(code)
@@ -14,7 +15,8 @@ export function lintGLua(code: string) {
         ...applyRule(functionParameterRule, ast),
         ...applyRule(functionNameRule, ast),
         ...applyRule(functionNameRule, ast),
-        ...applyRule(loopNestedRule, ast)
+        ...applyRule(loopNestedRule, ast),
+        ...applyRule(trailingSpaceRule, ast),
     ]
     return errors
 }
